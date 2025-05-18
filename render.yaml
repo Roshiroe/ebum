@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ebusite-web
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn ebusite.wsgi
+    autoDeploy: true
