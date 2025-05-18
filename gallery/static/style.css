@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+}
+
+body {
+  background-color: #fdfcfb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f5efe6;
+  border-bottom: 2px solid #ccc;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #5c3d2e;
+}
+
+header p {
+  font-style: italic;
+  color: #7c5e48;
+}
+
+/* Gallery Layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #e8dfd6;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  height: 400px;
+  cursor: pointer;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.photo:hover img {
+  transform: scale(1.05);
+}
+
+/* Hover quote overlay */
+.photo::after {
+  content: attr(data-hover-quote);
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.photo:hover::after {
+  opacity: 1;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f5efe6;
+  border-top: 2px solid #ccc;
+  color: #5c3d2e;
+}
+
+/* Expanded Photo Styles */
+#expanded-photo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  max-width: 900px;
+  height: 70vh;
+  background: white;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  border-radius: 12px;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  text-align: left;
+  z-index: 10000;
+
+  display: flex;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#expanded-photo.hidden {
+  display: none;
+}
+
+#expanded-photo img {
+  flex: 1 1 50%;
+  max-width: 50%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  user-select: none;
+}
+
+#expanded-poem {
+  flex: 1 1 50%;
+  max-height: 100%;
+  overflow-y: auto;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #5c3d2e;
+  white-space: pre-line;
+  line-height: 1.5;
+  padding-right: 0.5rem;
+  user-select: text;
+}
+
+/* Close button */
+#close-expanded {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #5c3d2e;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Blur effect for background when expanded photo is active */
+body.blur-background > header,
+body.blur-background > main,
+body.blur-background > footer {
+  filter: blur(8px);
+  user-select: none;
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 700px) {
+  #expanded-photo {
+    flex-direction: column;
+    width: 90vw;
+    height: 80vh;
+  }
+  #expanded-photo img,
+  #expanded-poem {
+    max-width: 100%;
+    flex-basis: auto;
+    max-height: 40vh;
+  }
+  #expanded-poem {
+    max-height: 35vh;
+  }
+}

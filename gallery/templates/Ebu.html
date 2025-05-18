@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ebu Museum</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+
+<body>
+  <header>
+    <h1>Ebu Museum</h1>
+    <p>A collection of Ebu the Bebu's beauty</p>
+  </header>
+
+  <main class="gallery">
+    <div class="photo" data-hover-quote="A gentle dawn's embrace in your smile, warming hearts beyond measure.">
+      <img src="{% static 'img1.jpg' %}" alt="Photo 1" />
+      <div class="poem hidden">
+        Your smile, a gentle dawn's embrace,<br/>
+        Lighting up the darkest space,<br/>
+        A warmth that lingers long after the day,<br/>
+        A soothing balm that won't fade away.<br/>
+        Like golden rays that softly creep,<br/>
+        Into hearts that ache or quietly weep.<br/>
+        It holds the power to heal and inspire,<br/>
+        Igniting flames of endless fire.
+      </div>
+    </div>
+
+    <div class="photo" data-hover-quote="Midnight skies held within her eyes, endless depths of mystery and grace.">
+      <img src="{% static 'img2.jpg' %}" alt="Photo 2" />
+      <div class="poem hidden">
+        Eyes that hold the midnight skies,<br/>
+        Where endless dreams and wonder rise,<br/>
+        A universe in every glance,<br/>
+        Inviting souls to a cosmic dance.<br/>
+        Stars are captured in their gaze,<br/>
+        Whispering secrets of forgotten days.<br/>
+        In their depths, time softly bends,<br/>
+        And every glance a story sends.
+      </div>
+    </div>
+
+    <div class="photo" data-hover-quote="A radiant light the night can't know, softly glowing beyond the moon's glow.">
+      <img src="{% static 'img3.jpg' %}" alt="Photo 3" />
+      <div class="poem hidden">
+        Moonlight pales beside your glow,<br/>
+        A radiant light the night can't know,<br/>
+        Whispering tales of quiet might,<br/>
+        Guiding lost hearts through the night.<br/>
+        You shine with gentle strength untold,<br/>
+        A warmth that breaks the deepest cold.<br/>
+        In darkest hours, you stand so bright,<br/>
+        A beacon blazing through the night.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Made with love for Ebu ✨</p>
+  </footer>
+
+  <!-- Expanded Photo Section -->
+  <div id="expanded-photo" class="hidden">
+    <span id="close-expanded">&times;</span>
+    <img id="expanded-img" src="" alt="Expanded view" />
+    <p id="expanded-poem"></p>
+  </div>
+
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
